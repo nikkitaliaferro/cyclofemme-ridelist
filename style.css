@@ -1,0 +1,83 @@
+* {
+    font-family: "Din Pro";
+    font-size: 14px;
+    line-height: 15px;
+    margin: 0;
+}
+
+div {
+    margin: 20px 0;
+}
+
+.single-ride {
+    padding: 30px;
+    display: block;
+    width: 100%;
+}
+
+.ride-heading {
+    margin-bottom: 5px;
+}
+
+.ride-country {
+    font-size: 14.5px;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.ride-city {
+    color: #35bdb2;
+    margin-bottom: 4px;
+}
+
+.ride-date {
+    margin-bottom: 20px;
+}
+
+.ride-leader {
+    font-size: 16px;
+}
+
+.ride-contact {
+    margin-bottom: 20px;
+}
+
+.summary {
+    width: 80%;
+}
+
+.search {
+    width: 50%;
+    margin: 30px auto;
+    border-bottom: 1px solid #000;
+}
+
+#search-input {
+    height: 50px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 25px;
+    border: 0;
+    outline: none;
+}
+
+.search-info {
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+h2 {
+    font-size: 18px;
+    line-height: 1;
+    letter-spacing: .05px;
+}
+
+h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <main>
+        <div class="search">
+            <div class="search-info">
+                enter your country or city to find nearby rides.
+            </div>
+            <input id="search-input">
+        </div>
+        <ul>
+            <div class="holder">
+            </div>
+        </ul>
+    </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $.getJSON('https://sheetsu.com/apis/v1.0/8772495a2293', function(data) {
+        var str = ""
+            // var email = data["Contact"]
+
+        for (var i = 0; i < data.length; i++) {
+
+            str += "<li>"
+
+            str += "<div class='single-ride'>"
+            str += "<h3 class='ride-country'>" + data[i]["Country"] + "</h3>"
+            str += "<h2 class='ride-city'>" + data[i]["City"] + " " + data[i]["Postal Code"] + "</h2>"
+            str += "<h3 class='ride-date'>" + data[i]["Ride Date"] + "</h3>"
+            str += "<h3 class='ride-heading'>" + "Ride Leader" + "</h3>" + "<p class='ride-leader'>" + data[i]["Ride Leader"] + " | " + data[i]["Contact"]
+            str += "</p>"
+            str += "<div class='summary'>" + "<h3 class='ride-heading'>" + "Summary" + "</h3>" + "<p class='ride-summary'>" + data[i]["Ride Summary"] + "</p>" + "</div>"
+            str += "</div>"
+
+            str += "</li>"
+        }
+
+        $("div.holder").html(str)
+    })
+
+    //declare variables
+    var input = document.getElementById('search-input');
+});
+</script>
+
+</html>
