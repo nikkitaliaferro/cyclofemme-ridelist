@@ -11,9 +11,9 @@
             <div class="search-info">
                 enter your country or city to find nearby rides.
             </div>
-            <input id="search-input">
+            <input type="text" id="search-input" onkeyup="myFunction()" placeholder="search for your ride" title="Type in a name">
         </div>
-        <ul>
+        <ul id="myUL">
             <div class="holder">
             </div>
         </ul>
@@ -28,10 +28,10 @@ $(document).ready(function() {
 
         for (var i = 0; i < data.length; i++) {
 
-            str += "<li>"
+            str += "<li class='ride'>"
 
             str += "<div class='single-ride'>"
-            str += "<h3 class='ride-country'>" + data[i]["Country"] + "</h3>"
+            str += "<h2 class='ride-country'>" + data[i]["Country"] + "</h2>"
             str += "<h2 class='ride-city'>" + data[i]["City"] + " " + data[i]["Postal Code"] + "</h2>"
             str += "<h3 class='ride-date'>" + data[i]["Ride Date"] + "</h3>"
             str += "<h3 class='ride-heading'>" + "Ride Leader" + "</h3>" + "<p class='ride-leader'>" + data[i]["Ride Leader"] + " | " + data[i]["Contact"]
@@ -44,10 +44,25 @@ $(document).ready(function() {
 
         $("div.holder").html(str)
     })
-
-    //declare variables
-    var input = document.getElementById('search-input');
 });
+
+
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("search-input");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("h2")[1]
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+
+        }
+    }
+}
 </script>
 
 </html>
